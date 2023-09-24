@@ -10,6 +10,7 @@ export const router = express.Router()
 
 const UPLOAD_DIR = process.env.UPLOAD_DIR
 const DOWNLOAD_DIR = process.env.DOWNLOAD_DIR
+const DOWNLOAD_BASE_URL = process.env.DOWNLOAD_BASE_URL
 const CONVERT_BASE_URL = process.env.CONVERT_BASE_URL
 
 // 配置 Multer 中间件，指定上传文件的目录和文件名生成规则
@@ -44,15 +45,12 @@ router.post("/upload", upload.single("file"), async (req: Request, res: Response
         res.status(404).send("File not found.");
         return
     }
-    const prefix = req.protocol + '://' + req.hostname  //
-        + ':' + req.app.locals.basePort //
-        + req.app.locals.basePath //
-        + routePath //
+   
 
     res.json({
         success: true,
         data: {
-            url: prefix + 'static/' + uploadedFileName
+            url: DOWNLOAD_BASE_URL + uploadedFileName
         },
     })
 
