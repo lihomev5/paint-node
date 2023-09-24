@@ -1,0 +1,18 @@
+{
+    "editor.fontSize": 12,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.renderWhitespace": "all",
+    "eslint.validate": [
+        "javascript", 
+        "typescript",
+        "vue",
+        "html",
+    ],
+    "[vue]": {
+        "editor.defaultFormatter": "Vue.volar"
+    },
+    "html.format.wrapAttributes": "preserve",
+    "workbench.editor.enablePreview": false,
+    "search.followSymlinks": false,
+}
