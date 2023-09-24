@@ -45,14 +45,14 @@ router.post("/upload", upload.single("file"), async (req: Request, res: Response
         return
     }
     const prefix = req.protocol + '://' + req.hostname  //
-        + ':' + req.app.get('port') //
+        + ':' + req.app.locals.basePort //
         + req.app.locals.basePath //
         + routePath //
 
     res.json({
         success: true,
         data: {
-            url: prefix + '/static/' + uploadedFileName
+            url: prefix + 'static/' + uploadedFileName
         },
     })
 

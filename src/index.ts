@@ -69,6 +69,7 @@ const initialize = async() => {
         console.info("The paint-node server is running at :%d%s", basePort, basePath)
     })
     // expose global variables
+    app.locals.basePort = basePort
     app.locals.basePath = basePath
     registerMapping({
         app: app,
